@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <base href="/" target="_blank">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="../static/img/favicon.svg" />
+  <title>KING•VPN - Registro</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+  <meta name="csrf-token" content="<%= it.csrfToken %>">
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      background-color: #0a0a0a; /* Fondo más oscuro */
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden; /* Pantalla fija */
+      padding: 1rem;
+    }
+
+    .card {
+      background-color: #141414; /* Tarjeta más oscuro */
+      border-radius: 12px;
+      padding: 2rem;
+      max-width: 420px;
+      width: 100%;
+      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.9); /* Sombra HD profunda */
+      position: relative;
+      z-index: 10;
+    }
+
+    h1.title {
+      font-size: 2rem;
+      font-weight: 900;
+      letter-spacing: 2px;
+      text-align: center;
+      margin-bottom: 0.5rem;
+      color: #fff;
+      text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+    }
+
+    .subtitles {
+      font-size: 0.95rem;
+      color: #e0e0e0;
+      text-align: center;
+      margin-bottom: 1.5rem;
+      white-space: nowrap;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .subtitles span {
+      display: inline-block;
+      padding-left: 100%;
+      animation: slide-text 12s linear infinite;
+    }
+
+    @keyframes slide-text {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
+
+    .form-control,
+    .form-select {
+      background-color: #1b1b1b; /* Gris oscuro profundo */
+      color: #fff;
+      border: none;
+      transition: color 0.2s;
+    }
+
+    /* Label blanco y negrita */
+    .form-label {
+      color: #fff;
+      font-weight: 700;
+    }
+
+    /* Texto rojo mientras se escribe */
+    .form-control:focus {
+      color: red;
+      background-color: #1b1b1b;
+      box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.25);
+    }
+
+    /* Email mantiene blanco siempre */
+    #email:focus {
+      color: #fff;
+    }
+
+    .btn-dark {
+      background-color: #333333;
+      border: none;
+    }
+
+    .btn-dark:hover {
+      background-color: #444444;
+    }
+
+    .img-rounded {
+      border-radius: 50%;
+    }
+
+    /* Botón contacto WhatsApp */
+    .contact-btn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto 1rem auto;
+      padding: 0.5rem 1rem;
+      border: 2px solid #fff;
+      border-radius: 8px;
+      color: #fff;
+      font-weight: bold;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .contact-btn:hover {
+      background-color: #fff;
+      color: #121212;
+    }
+
+    .contact-btn i {
+      margin-right: 0.5rem;
+      font-size: 1.3rem;
+    }
+
+    /* Valid input */
+    .valid-text {
+      color: #00ff00 !important;
+    }
+
+    /* Link de iniciar sesión blanco y negrita */
+    .login-link {
+      color: #fff !important;
+      font-weight: 700;
+    }
+  </style>
+</head>
+
+<body>
+  <main class="text-center">
+    <div class="card">
+
+      <!-- Botón de contacto WhatsApp arriba -->
+      <a href="https://wa.me/5493765142705" target="_blank" class="contact-btn">
+        <i class="bi bi-whatsapp"></i> Contacto
+      </a>
+
+      <h1 class="title">KING•VPN</h1>
+      <div class="subtitles">
+        <span>Conexión segura • Alta velocidad • Privacidad total • Protección 4K HD • Anónimo y confiable</span>
+      </div>
+
+      <form role="form" method="POST">
+        <input id="csrf_token" name="csrf_token" type="hidden"
+          value="IjQ3YzM5YmJiMTdhODE2MDU1Y2NjZTdkMmVhNzM2NmJiMjMwMmMzZTIi.ZWMs-g.3S4zbu_OwJaENqRwozImnUPssQw">
+
+        <div class="d-flex flex-column text-start gap-3 __inputs">
+          <div>
+            <label class="form-label ms-1 mb-1" for="username">Nombre de usuario</label>
+            <input type="text" class="form-control rounded" name="username" id="username" required
+              placeholder="Ex: username">
+          </div>
+          <div class="d-flex flex-md-row flex-column gap-3">
+            <div>
+              <label class="form-label ms-1 mb-1" for="password">Contraseña</label>
+              <input type="password" class="form-control rounded" name="password" id="password" required
+                placeholder="********">
+            </div>
+            <div>
+              <label class="form-label ms-1 mb-1" for="confirm_password">Confirma la contraseña</label>
+              <input type="password" class="form-control rounded" id="confirm_password" name="confirm_password"
+                required placeholder="********">
+            </div>
+          </div>
+          <div>
+            <label class="form-label ms-1 mb-1" for="email">E-mail</label>
+            <input type="email" class="form-control rounded" id="email" name="email" required
+              placeholder="Ex: email@mail.com">
+          </div>
+        </div>
+
+        <button type="submit" class="w-100 btn btn-dark btn-block rounded mt-4">
+          <div class="__btn_loader d-flex justify-content-center d-none">
+            <div class="spinner-border text-light" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>
+          </div>
+          <span class="__btn_text">Registrar</span>
+        </button>
+      </form>
+      <hr />
+      <p><a href="/login" class="login-link" target="_self">Si ya tienes una cuenta, inicia sesión aquí.</a></p>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+  <script src="../static/js/utils.js"></script>
+  <script src="../static/js/register.js"></script>
+
+  <script>
+    // Cambiar color a verde si más de 6 caracteres
+    const username = document.getElementById('username');
+    const password = document.getElementById('password');
+    const confirm = document.getElementById('confirm_password');
+
+    [username, password, confirm].forEach(field => {
+      field.addEventListener('input', () => {
+        if (field.value.length > 6) {
+          field.classList.add('valid-text');
+        } else {
+          field.classList.remove('valid-text');
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>

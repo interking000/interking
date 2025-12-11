@@ -16,7 +16,7 @@ export default {
     });
 
     if (!registerApi) {
-      throw new Error('Pagina de registro não encontrada');
+      throw new Error('Pagina de registro no encontrada');
     }
 
     Render.page(req, reply, '/login/index.html', { csrfToken: req.csrfProtection.generateCsrf() });

@@ -22,7 +22,7 @@ export default {
     );
 
     if (!texts) {
-      throw new Error('Não foi possível resetar textos');
+      throw new Error('No fue posible restablecer textos');
     }
 
     reply.status(200).send();

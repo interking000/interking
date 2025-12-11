@@ -32,12 +32,12 @@ export default {
 
     if (usernameAlreadyExists && usernameAlreadyExists.id !== req.user.id) {
       reply.status(409);
-      throw new Error('Nome de usuário já utilizado, tente um diferente');
+      throw new Error('Nombre de usuario ya esta siendo utilizado, pruebe uno diferente');
     }
 
     if (body.password !== body.confirm_password) {
       reply.status(400);
-      throw new Error('Senhas não conferem');
+      throw new Error('las Contraseñas no coinciden');
     }
 
     const password = body.password ? BCrypt.hash(body.password) : undefined;
@@ -55,7 +55,7 @@ export default {
     );
 
     if (!user) {
-      throw new Error('Não foi possível alterar seus dados');
+      throw new Error('No fue posible editar tus datos');
     }
 
     reply.status(200).send();

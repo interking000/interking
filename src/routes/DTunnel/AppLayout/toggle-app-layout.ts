@@ -30,7 +30,7 @@ export default {
 
     if (!getAppLayout) {
       reply.status(400);
-      throw new Error('Nenhum layout foi encontrado');
+      throw new Error('No se encontro ningun layout');
     }
 
     const result = await SafeCallback(async () => {
@@ -55,7 +55,7 @@ export default {
     });
 
     if (!result) {
-      throw new Error('Não foi possível ativar o layout');
+      throw new Error('No fue posibe activar el layout');
     }
 
     reply.header('csrf-token', req.csrfProtection.generateCsrf());

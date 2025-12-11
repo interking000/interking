@@ -33,7 +33,7 @@ export class Imgbb {
 
       return { status: 400, message: response.error.message };
     } catch (err: any) {
-      return { status: 500, message: 'Erro interno', stack: err.stack };
+      return { status: 500, message: 'Error interno', stack: err.stack };
     }
   }
 }

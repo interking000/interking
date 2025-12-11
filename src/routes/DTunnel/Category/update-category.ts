@@ -36,7 +36,7 @@ export default {
 
     if (!category) {
       reply.status(400);
-      throw new Error('Não foi possível editar essa categoria');
+      throw new Error('No fue posible editar esa categoria');
     }
 
     reply.send({ status: 200 });

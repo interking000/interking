@@ -28,7 +28,7 @@ export default {
     if (usernameAlreadyExists) {
       reply.status(409);
       reply.header('csrf-token', req.csrfProtection.generateCsrf());
-      throw new Error('Nome de usuário já está sendo utilizado');
+      throw new Error('Nombre de usuario ya esta en uso utilizado');
     }
 
     const emailAlreadyExists = await SafeCallback(() =>
@@ -40,7 +40,7 @@ export default {
     if (emailAlreadyExists) {
       reply.status(409);
       reply.header('csrf-token', req.csrfProtection.generateCsrf());
-      throw new Error('Email já cadastrado');
+      throw new Error('GMAIL ya registrado');
     }
 
     const passwordHash = BCrypt.hash(password);
@@ -56,7 +56,7 @@ export default {
     );
 
     if (!user) {
-      throw new Error('Não foi possível criar usuário');
+      throw new Error('No fue posible crear usuario');
     }
 
     for await (const AppText of AppTextDefault) {

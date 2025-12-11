@@ -27,7 +27,7 @@ export default {
 
     if (!category) {
       reply.status(400);
-      throw new Error('Não foi possível deletar categoria');
+      throw new Error('No fue posible eliminar categoria');
     }
 
     reply.status(204).send();

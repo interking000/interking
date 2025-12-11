@@ -11,7 +11,7 @@ export default {
 
     if (!file) {
       reply.status(400);
-      throw new Error('Arquivo inválido!');
+      throw new Error('Archivo invalido!');
     }
 
     const upload = await Imgbb.upload(file);

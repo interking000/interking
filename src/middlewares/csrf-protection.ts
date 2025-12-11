@@ -5,13 +5,13 @@ export default function csrfProtection(req: FastifyRequest, reply: FastifyReply,
 
   if (!csrfToken) {
     reply.status(400);
-    throw new Error('Csrf token não informado');
+    throw new Error('Csrf token no informado');
   }
 
   if (!req.csrfProtection.verifyCsrf(csrfToken)) {
     reply.status(403);
     reply.header('csrf-token', req.csrfProtection.generateCsrf());
-    throw new Error('Csrf token inválido ou expirado');
+    throw new Error('Csrf token inválido o expirado');
   }
 
   done();

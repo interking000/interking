@@ -29,7 +29,7 @@ export default {
 
     if (!deleteAppLayout) {
       reply.status(400);
-      throw new Error('Não foi possível apagar layout');
+      throw new Error('No fue posible desactivar layout');
     }
 
     reply.status(204).send();

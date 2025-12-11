@@ -27,7 +27,7 @@ export default {
 
     if (!configAlreadyExists) {
       reply.status(400);
-      throw new Error('Configuração não encontrada');
+      throw new Error('Configuracion no encontrada');
     }
 
     const config = await SafeCallback(() =>
@@ -42,7 +42,7 @@ export default {
     );
 
     if (!config) {
-      throw new Error('Não possivel foi editar a configuração');
+      throw new Error('No fue posible editar la configuración');
     }
 
     reply.send({ status: 200 });

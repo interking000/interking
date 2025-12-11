@@ -24,7 +24,7 @@ export default {
     );
 
     if (!category) {
-      throw new Error('Não foi possível criar categoria');
+      throw new Error('No fue posible crear categoria');
     }
 
     reply.status(201).send({ category_id: category.id });

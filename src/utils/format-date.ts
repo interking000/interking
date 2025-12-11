@@ -1,5 +1,5 @@
 export default function formatDate(date: Date): string {
-  const formattedDate = new Date(date).toLocaleString('pt-BR', {
+  const formattedDate = new Date(date).toLocaleString('es-AR', {
     day: '2-digit',
     month: '2-digit',
     year: 'numeric',

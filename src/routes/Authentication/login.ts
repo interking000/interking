@@ -27,11 +27,11 @@ export default {
     if (!user || !BCrypt.compare(password, user.password)) {
       reply.status(401);
       reply.header('csrf-token', req.csrfProtection.generateCsrf());
-      throw new Error('Usuário e/ou senha inválidos');
+      throw new Error('Usuario o Contraseña invalidos❌');
     }
 
     CookieManager.setCookiesLoggedIn(reply, user.id);
 
-    reply.send({ status: 200, message: 'Sucesso, aguarde você está sendo redirecionando' });
+    reply.send({ status: 200, message: 'Exito🥳, aguarde lo estamos redirecionando' });
   },
 } as RouteOptions;

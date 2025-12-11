@@ -16,7 +16,7 @@ export default {
 
     if (appLayoutCount >= MAX_LAYOUT_PERMITTED) {
       reply.status(409);
-      throw new Error('Você antigiu o limite máximo de layout');
+      throw new Error('Usted llego al limite máximo de layout');
     }
 
     const is_active = appLayoutCount <= 0;
@@ -32,7 +32,7 @@ export default {
     );
 
     if (!createAppLayout) {
-      throw new Error('Erro ao criar layout');
+      throw new Error('Error al crear layout');
     }
 
     for (const AppLayout of body.app_config) {

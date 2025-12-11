@@ -22,7 +22,7 @@ export default {
     );
 
     if (!config) {
-      throw new Error('Não foi possível criar a configuração');
+      throw new Error('No fue posible crear la configuración');
     }
 
     reply.status(201).send({ status: 201, config_id: config.id });

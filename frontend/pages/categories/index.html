@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR" translate="no" data-bs-theme="light">
+<html lang="es" translate="no" data-bs-theme="dark">
 
 <head>
   <base href="/" target="_blank">
@@ -7,64 +7,176 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="google" content="notranslate">
   <link rel="shortcut icon" href="../static/img/favicon.svg" />
-  <title>DTunnelMod - Categories</title>
+  <title>KING•VPN - Categorías</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap / Iconos -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
+
+  <!-- Toastify -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+
+  <!-- Tus estilos -->
   <link rel="stylesheet" href="../static/css/styles.css">
   <link rel="stylesheet" href="../static/css/bootstrap.css">
   <link rel="stylesheet" href="../static/css/sidebar.css">
   <link rel="stylesheet" href="../static/css/header.css">
+
   <script src="../static/js/dark_light.js"></script>
   <script src="//code.jquery.com/jquery-2.1.0.min.js"></script>
   <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css" rel="stylesheet" />
   <meta name="csrf-token" content="<%= it.csrfToken %>">
+
+  <!-- ================= ESTILO 3D ADAPTATIVO ================= -->
+  <style>
+    /* Fondo adaptativo */
+    body[data-bs-theme="light"] {
+      background: linear-gradient(145deg, #e0e0e0, #c4c4c4);
+      color: #222;
+    }
+
+    body[data-bs-theme="dark"] {
+      background: linear-gradient(145deg, #0e0e0e, #1a1a1a);
+      color: #fff;
+    }
+
+    /* TITLE 3D */
+    h1 {
+      font-weight: 900;
+      font-size: 2rem;
+      color: inherit;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.4), -2px -2px 5px rgba(255,255,255,0.1);
+    }
+
+    /* BOTONES 3D */
+    .btn-3d {
+      background: linear-gradient(145deg, #3a3a3a, #1e1e1e);
+      border: none;
+      color: #fff;
+      font-weight: 700;
+      padding: 12px;
+      border-radius: 10px;
+      box-shadow: 4px 4px 10px rgba(0,0,0,0.6), -3px -3px 7px rgba(255,255,255,0.05);
+      transition: 0.2s ease;
+    }
+    body[data-bs-theme="light"] .btn-3d {
+      background: linear-gradient(145deg, #f0f0f0, #dcdcdc);
+      color: #222;
+      box-shadow: 4px 4px 10px rgba(0,0,0,0.2), -3px -3px 7px rgba(255,255,255,0.6);
+    }
+    .btn-3d:hover { transform: translateY(-3px); }
+    .btn-3d:active { transform: translateY(3px); }
+
+    /* CARDS DE CATEGORÍAS CON REFLEJO SUPERIOR */
+    .categoria-card {
+      border-radius: 18px;
+      padding: 20px;
+      margin-bottom: 20px;
+      color: inherit;
+      background: linear-gradient(145deg, rgba(255,255,255,0.05), rgba(0,0,0,0.05));
+      box-shadow: 4px 4px 10px rgba(0,0,0,0.5), -3px -3px 7px rgba(255,255,255,0.05);
+      position: relative;
+      transition: 0.2s;
+    }
+    .categoria-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; height: 50%;
+      border-radius: 18px 18px 0 0;
+      background: rgba(255,255,255,0.05);
+      pointer-events: none;
+    }
+    .categoria-card:hover { transform: translateY(-5px); }
+
+    /* GRILLA RESPONSIVE EN 4 COLUMNAS */
+    #root {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      grid-gap: 20px;
+    }
+
+    /* TEXTO DESLIZANTE DEBAJO DEL TÍTULO */
+    .texto-animado {
+      width: 100%;
+      overflow: hidden;
+      white-space: nowrap;
+      color: #ff0000;
+      font-size: 14px;
+    }
+    .texto-animado span {
+      display: inline-block;
+      padding-left: 100%;
+      animation: mover 10s linear infinite;
+    }
+    @keyframes mover {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
+  </style>
 </head>
 
 <body>
   <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js"></script>
+
   <main class="d-flex">
     <%~ include("./sidebar", it) %>
+
     <div class="container-fluid p-0">
       <%~ include("./header", it) %>
+
       <div class="content pt-1 overflow-auto">
         <div class="card h-100 border border-0 shadow overflow-auto">
           <div class="card-body m-0">
-            <h1 class="mt-2 h3 mb-4 text-gray-800">CATEGORIAS</h1>
+
+            <!-- TITLE -->
+            <h1 class="mt-2 h3 mb-4">CATEGORÍAS</h1>
+
+            <!-- TEXTO DESLIZANTE DEBAJO DEL TÍTULO -->
+            <div class="texto-animado mb-3">
+              <span>Panel de administración de categorías • KING•VPN • Gestión avanzada •</span>
+            </div>
+
+            <!-- FILTROS Y BOTONES -->
             <div class="d-md-flex justify-content-between align-items-center mb-3">
+
+              <!-- SELECT -->
               <div class="col-md-2">
-                <select class="__status form-select mb-2">
-                </select>
+                <select class="__status form-select mb-2"></select>
               </div>
+
+              <!-- BOTONES 3D -->
               <div class="col-md-3 d-flex justify-content-center align-items-center mb-2 text-nowrap">
-                <button type="button" class="__btn__add btn btn-dark me-2 w-100">
-                  <i class="bi bi-plus-lg"></i>
-                  NOVO
+                <button type="button" class="__btn__add btn-3d me-2 w-100">
+                  <i class="bi bi-plus-lg"></i> CREAR
                 </button>
-                <button type="button" class="__btn__delete btn btn-dark w-100">
-                  <i class="bi bi-trash"></i>
-                  DELETAR
+
+                <button type="button" class="__btn__delete btn-3d w-100">
+                  <i class="bi bi-trash"></i> ELIMINAR
                 </button>
               </div>
+
             </div>
-            <div id="root">
-            </div>
+
+            <!-- LISTA DE CATEGORÍAS -->
+            <div id="root"></div>
             <div id="pagination"></div>
+
           </div>
         </div>
       </div>
     </div>
   </main>
+
+  <!-- Scripts -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="../static/js/sidebar.js"></script>
   <script src="../static/js/utils.js"></script>
-
   <script src="../static/js/jscolor.js"></script>
   <script type="module" src="../static/js/category/main.js"></script>
-</body>
 
+</body>
 </html>

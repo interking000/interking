@@ -1,0 +1,176 @@
+<div class="sidebar shadow" id="sidebar">
+  <div class="sidebar-header">
+    <a href="/" target="_self" class="menu-text">
+      <span>MENU</span>
+    </a>
+    <button id="closeNav">
+      <i class="bi bi-list-nested"></i>
+    </button>
+  </div>
+  <ul class="sidebar-nav">
+    <li class="nav-item">
+      <a href="/" target="_self" class="nav-link <%~ it.active === 'home' ? 'active' : '' %>">
+        <span>🏠 Inicio</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a href="/categories" target="_self" class="nav-link <%~ it.active === 'categories' ? 'active' : '' %>">
+        <span>📁 Categorias</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a href="/configs" target="_self" class="nav-link <%~ it.active === 'configs' ? 'active' : '' %>">
+        <span>⚙️ Configuraciones</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a href="/application" target="_self" class="nav-link <%~ it.active === 'application' ? 'active' : '' %>">
+        <span>📱 Temas</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a href="/texts" target="_self" class="nav-link <%~ it.active === 'texts' ? 'active' : '' %>">
+        <span>⌨ Textos</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="btn nav-link text-start" onclick="swithTheme()">
+        <span>📍 Estilo</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a href="/profile" target="_self" class="nav-link <%~ it.active === 'profile' ? 'active' : '' %>">
+        <span>👤 Perfil</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a href="/logout" target="_self" class="nav-link">
+        <span>❌ Salir</span>
+      </a>
+    </li>
+  </ul>
+</div>
+
+<style>
+  /* BASE SIDEBAR */
+  .sidebar {
+    width: 220px;
+    height: auto;
+    max-height: 90vh;
+    padding: 1rem 0.5rem;
+    background-color: #1c1c1c;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid rgba(255,255,255,0.1);
+    transition: background-color 0.3s ease;
+  }
+
+  .sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding: 0 0.5rem;
+  }
+
+  .menu-text span {
+    font-weight: 900;
+    font-size: 1.2rem;
+    color: #fff;
+    text-shadow: 2px 2px 3px rgba(0,0,0,0.5);
+  }
+
+  .sidebar-nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .nav-item .nav-link {
+    display: flex;
+    align-items: center;
+    padding: 0.4rem 0.8rem;
+    border-radius: 8px;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .nav-item .nav-link:hover {
+    background-color: rgba(255,255,255,0.1);
+  }
+
+  .nav-item .active {
+    background: linear-gradient(145deg, #333, #555);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    color: #fff !important; /* Siempre blanco */
+  }
+
+  .nav-link.btn {
+    cursor: pointer;
+    background: none;
+    text-align: left;
+  }
+
+  /* TEMA CLARO */
+  [data-bs-theme="light"] .sidebar {
+    background-color: #f0f0f0;
+    border-right: 1px solid rgba(0,0,0,0.1);
+  }
+
+  [data-bs-theme="light"] .sidebar .nav-link {
+    color: #222;
+  }
+
+  [data-bs-theme="light"] .sidebar .menu-text span {
+    color: #222;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+  }
+
+  [data-bs-theme="light"] .sidebar .nav-item .nav-link:hover {
+    background-color: rgba(0,0,0,0.05);
+  }
+
+  /* Activo en tema claro */
+  [data-bs-theme="light"] .sidebar .nav-item .active {
+    background-color: #222; /* Fondo oscuro para resaltar */
+    color: #fff !important;  /* Texto blanco */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  }
+
+  /* Ajuste de altura de barra para que no haga scroll */
+  @media (max-height: 700px) {
+    .sidebar {
+      max-height: 80vh;
+    }
+  }
+</style>
+
+<script>
+  // Animación de botones al cargar
+  document.querySelectorAll('.sidebar .nav-item').forEach((item, index) => {
+    item.style.opacity = 0;
+    item.style.transform = 'translateX(-20px)';
+    setTimeout(() => {
+      item.style.transition = 'all 0.4s ease';
+      item.style.opacity = 1;
+      item.style.transform = 'translateX(0)';
+    }, index * 150);
+  });
+
+  function swithTheme() {
+    const body = document.body;
+    if(body.getAttribute('data-bs-theme') === 'dark'){
+      body.setAttribute('data-bs-theme','light');
+    } else {
+      body.setAttribute('data-bs-theme','dark');
+    }
+  }
+</script>

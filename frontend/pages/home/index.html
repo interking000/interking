@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="es" translate="no" data-bs-theme="light">
+
+<head>
+  <base href="/" target="_blank">
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="google" content="notranslate">
+  <link rel="shortcut icon" href="/static/img/favicon.svg" />
+  <title>KING•VPN - INICIO</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap & Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css" rel="stylesheet" />
+
+  <!-- CSS originales -->
+  <link rel="stylesheet" href="../static/css/styles.css">
+  <link rel="stylesheet" href="../static/css/bootstrap.css">
+  <link rel="stylesheet" href="../static/css/sidebar.css">
+  <link rel="stylesheet" href="../static/css/header.css">
+
+  <script src="../static/js/dark_light.js"></script>
+  <script src="//code.jquery.com/jquery-2.1.0.min.js"></script>
+  <meta name="csrf-token" content="<%= it.csrfToken %>">
+
+  <!-- 🎨 Diseño Adaptable Mejorado -->
+  <style>
+
+    /* VARIABLES BASE */
+    :root {
+      /* LIGHT MODE */
+      --bg: #f2f2f2;
+      --bg-card: #ffffff;
+      --text: #111;
+      --border: #d4d4d4;
+
+      /* Sidebar/header en modo claro → tono grafito elegante */
+      --sidebar-bg: #e7e7e7;
+      --sidebar-text: #1a1a1a;
+      --sidebar-border: #c0c0c0;
+
+      /* sombras PRO en modo claro */
+      --shadow: rgba(0,0,0,0.25);
+      --shadow-strong: rgba(0,0,0,0.45);
+
+      --highlight: rgba(0,0,0,0.08);
+    }
+
+    /* DARK MODE */
+    [data-bs-theme="dark"] {
+      --bg: #0f0f0f;
+      --bg-card: #1a1a1a;
+      --text: #ffffff;
+      --border: #444;
+
+      --sidebar-bg: #111;
+      --sidebar-text: #ddd;
+      --sidebar-border: #333;
+
+      --shadow: rgba(255,255,255,0.18);
+      --shadow-strong: rgba(255,255,255,0.25);
+
+      --highlight: rgba(255,255,255,0.1);
+    }
+
+    /* BODY */
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .content { padding: 15px; }
+
+    /* GRID */
+    .cards-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+      gap: 20px;
+    }
+
+    /* CARD PRO */
+    .card {
+      background-color: var(--bg-card);
+      border: 2px solid var(--border);
+      border-radius: 12px;
+      box-shadow: 0 6px 20px var(--shadow);
+      transition: 0.3s ease;
+      padding: 12px;
+      font-weight: bold;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card:hover {
+      transform: translateY(-6px) scale(1.02);
+      border-color: var(--highlight);
+      box-shadow: 0 14px 30px var(--shadow-strong);
+    }
+
+    .card::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, var(--highlight) 0%, transparent 60%);
+      animation: glow 3s infinite alternate;
+      pointer-events: none;
+    }
+
+    @keyframes glow {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .fecha-vencimiento {
+      background-color: var(--bg);
+      color: var(--text);
+      padding: 5px 10px;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      box-shadow: 0 0 5px var(--shadow);
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: var(--text);
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+    }
+
+    /* ------------------ SIDEBAR ------------------ */
+
+    .sidebar {
+      background-color: var(--sidebar-bg) !important;
+      border-right: 1px solid var(--sidebar-border) !important;
+      box-shadow: 4px 0px 20px var(--shadow);
+    }
+
+    .sidebar a {
+      color: var(--sidebar-text) !important;
+      font-weight: 500;
+    }
+
+    .sidebar a:hover {
+      opacity: 1;
+      text-shadow: 0 0 6px var(--shadow);
+    }
+
+    /* ------------------ HEADER ------------------ */
+
+    header {
+      background-color: var(--sidebar-bg) !important;
+      border-bottom: 1px solid var(--sidebar-border) !important;
+      box-shadow: 0 4px 20px var(--shadow);
+    }
+
+  </style>
+</head>
+
+<body>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js"></script>
+
+  <main class="d-flex">
+    <%~ include("./sidebar", it) %>
+
+    <div class="container-fluid p-0">
+      <%~ include("./header", it) %>
+
+      <div class="content pt-1 overflow-auto">
+
+        <div class="cards-container">
+          <%~ include("./cards", it) %>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- scripts -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="../static/js/sidebar.js"></script>
+  <script src="../static/js/utils.js"></script>
+
+  <script>
+    const padStart = (value, length, pad) => `${value}`.padStart(length, pad);
+
+    const setInternalError = (element) =>
+      element.innerHTML = '<span class="text-danger">Error interno</span>';
+
+    const fetchDataAndUpdate = async () => {
+      const config = document.querySelector('.__config');
+      const configPlaceholder = document.querySelector('.__config__placeholder');
+
+      const category = document.querySelector('.__category');
+      const categoryPlaceholder = document.querySelector('.__category__placeholder');
+
+      try {
+        const data = await fetch('/config_count');
+        const response = await data.json();
+
+        if (response.message) {
+          config.textContent = padStart(0, 2, '0');
+          category.textContent = padStart(0, 2, '0');
+          return;
+        }
+
+        config.textContent = padStart(response.total_configs, 2, '');
+        category.textContent = padStart(response.total_categories, 2, '');
+
+      } catch (err) {
+        setInternalError(config);
+        setInternalError(category);
+      } finally {
+        configPlaceholder.classList.add('d-none');
+        categoryPlaceholder.classList.add('d-none');
+      }
+    };
+
+    fetchDataAndUpdate();
+  </script>
+
+</body>
+</html>

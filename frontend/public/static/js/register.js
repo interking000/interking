@@ -88,7 +88,7 @@ class ModalRegistroExitoso {
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content bg-black-glass text-white fw-bold" style="font-family: 'Segoe UI', sans-serif;">
                     <div class="modal-header">
-                        <h5 class="modal-title text-3d">¡Felicidades!</h5>
+                        <h5 class="modal-title text-3d">✨¡Felicidades!✨</h5>
                         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
                     </div>
                     <div class="modal-body text-center">
@@ -100,8 +100,8 @@ class ModalRegistroExitoso {
                             <p class="mb-2">🔗 Link de acceso: <a href="${window.location.origin + '/login'}" class="text-reset">${window.location.origin + '/login'}</a></p>
                             <p class="mb-2">Contacto: <a href="https://youtu.be/hz2zCdgvRzA" target="_blank" class="text-reset">INTER•KING</a></p>
                             <ul class="mt-4">
-                                <li>Canal: <a href="https://whatsapp.com/channel/0029VbBKUIAL7UVQLgYs5S1b" class="text-reset">DTunnel</a></li>
-                                <li>Grupo: <a href="https://t.me/+9-aFIbCVPUIxNjdh" class="text-reset">DTunnelGroup</a></li>
+                                <li>Canal: <a href="https://whatsapp.com/channel/0029VbBKUIAL7UVQLgYs5S1b" class="text-reset">KINGVPN</a></li>
+                                <li>Grupo: <a href="https://t.me/+9-aFIbCVPUIxNjdh" class="text-reset">TelegramGrupo</a></li>
                             </ul>
                         </div>
                     </div>
